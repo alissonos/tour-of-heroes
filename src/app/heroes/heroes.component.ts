@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Hero } from '../hero.model';
 import { HeroService } from '../hero.service';
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.scss']
+  styleUrls: ['./heroes.component.scss'],
 })
 
 export class HeroesComponent implements OnInit {
@@ -18,10 +19,12 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroService.getHEROES().subscribe(heroes => this.heroes = heroes);
+    this.heroService.getHEROES().subscribe(
+      heroes => this.heroes = heroes
+    );
   }
 
-  onSelect(hero: Hero): void{
+  onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
 }
